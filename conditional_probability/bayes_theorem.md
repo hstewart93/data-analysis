@@ -1,4 +1,4 @@
-#Bayes' Theorem
+# Bayes' Theorem
 
 Bayes' theorem is a way to figure out conditional probability. **Conditional probability** is the probability of an event happening, given that it has some relationship to one or more other events. For example, your probability of getting a parking space is connected to the time of day you park, where you park, and what conventions are going on at any time (conditional factors to be considered as part of your model). Bayes' theorem is slightly more nuanced. In a nutshell, it gives you the actual probability of an **event** given information about **tests**.
 
@@ -17,7 +17,7 @@ P(A|B) = P(B|A)P(A)/P(B)
 
 `P(D)` is the `evidence` - the probability of getting the data, given all possible model parameter values.
 
-##Example 1
+## Example 1
 You might be interested in finding out a patient's probability of having liver disease if they are an alcoholic. "Being and alcoholic" is the `test` for liver disease.
 
 - `A` could mean the event "patient has liver disease". Past data tells you that `10%` of patients entering your clinic have liver disease - `P(A)=0.10`.
