@@ -1,22 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-def plot_line(ax, w):
-    # input data
-    X = np.zeros((2, 2))
-    X[0, 0] = -5
-    X[1, 0] = 5
-    X[:, 1] = 1
-    
-    # because of the concatenation we have to flip the transpose
-    y = w.dot(X.T)
-    ax.plot(X[:, 0], y)
+from input_data import X, tau, w_0
 
 
-# create prior distribution
-tau = np.eye(2)
-w_0 = np.zeros((2, 1))
+def generate_y(X, w):
+    """A function to generate value y given X as a linear distribution."""
+    return w.dot(X.T)
+
+
+def plot_line(X, ax):
+    """A function to plot a linear distribution of y against X."""
+    y = generate_y(X, w_samp[i, :])
+    return ax.plot(X[:, 0], y)
+
 
 # samples from prior
 n_samples = 100
@@ -28,6 +25,15 @@ fig = plt.figure(figsize=(10, 5))
 ax = fig.add_subplot(111)
 
 for i in range(0, w_samp.shape[0]):
-    plot_line(ax, w_samp[i, :])
+    plot_line(X, ax)
 
 plt.show()
+
+# Iterative procedure to compute and visualise posterior for random data points
+index = np.random.permutation(X.shape[0])
+
+for i in range(0, index.shape[0]):
+    y = generate_y(X, w_samp[i, :])
+    X_i = X[index, :]
+    y_i = y[index]
+    import ipdb; ipdb.set_trace()
